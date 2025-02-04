@@ -1,40 +1,26 @@
-const mary = {
-    name: 'Mary',
-    wantApples: 2,
+const user = {
+    example: [1, 2, 3],
+    'X-Address': {
+        street: 'Ленина',
+        house: '10-Б',
+    },
+    nickname: null,
+    permissions: [true, false],
+    age: 101,
+    emails: ['alice@example.com', 'bob@example.com', 'charlie@example.com', 'peter@example.com'],
+    name: 'Peter Charles',
+    isAdult: true,
+    now: new Date().toISOString(),
 };
 
-const alex = {
-    name: 'Alex',
-    wantApples: 1,
-};
+let maxLength = null;
+let result = null;
 
-const mike = {
-    name: 'Mike',
-    wantApples: 5,
-};
-
-const brown = {
-    name: 'Brown',
-    wantApples: 4,
-};
-
-const people = [mary, alex, mike, brown];
-const apples = 11;
-
-const applesPerPerson = Math.floor(apples / people.length);
-const happy = [];
-const notHappy = [];
-
-for (const person of people) {
-    person.eaten = applesPerPerson;
-    person.isHappy = person.eaten >= person.wantApples;
-
-    if (person.isHappy) {
-        happy.push(person);
-    } else {
-        notHappy.push(person);
+for (const key in user) {
+    if (Array.isArray(user[key]) && user[key].length > maxLength) {
+        maxLength = user[key].length;
+        result = user[key];
     }
 }
 
-console.log('Довольные:', happy);
-console.log('Недовольные:', notHappy);
+console.log(`Максимальная длина: ${maxLength}. Последнее значение: ${result[maxLength-1]}`);
