@@ -1,26 +1,17 @@
-const user = {
-    example: [1, 2, 3],
-    'X-Address': {
-        street: 'Ленина',
-        house: '10-Б',
-    },
-    nickname: null,
-    permissions: [true, false],
-    age: 101,
-    emails: ['alice@example.com', 'bob@example.com', 'charlie@example.com', 'peter@example.com'],
-    name: 'Peter Charles',
-    isAdult: true,
-    now: new Date().toISOString(),
-};
+const object1 = { isAdult: true, email: 'example@mail.com', page: 100 };
+const object2 = { page: 100, isAdult: true, email: 'example@mail.com' };
 
-let maxLength = null;
-let result = null;
+const keys1 = Object.keys(object1);
+const keys2 = Object.keys(object2);
+let areEqual = keys1.length === keys2.length;
 
-for (const key in user) {
-    if (Array.isArray(user[key]) && user[key].length > maxLength) {
-        maxLength = user[key].length;
-        result = user[key];
+if (areEqual) {
+    for (const key of keys1) {
+        if (object1[key] !== object2[key]) {
+            areEqual = false;
+            break;
+        }
     }
 }
 
-console.log(`Максимальная длина: ${maxLength}. Последнее значение: ${result[maxLength-1]}`);
+console.log(areEqual);
