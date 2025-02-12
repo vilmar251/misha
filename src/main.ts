@@ -21,7 +21,7 @@ console.log(dayjs(time1).toISOString());
 console.log(dayjs(time2).toISOString());
 console.log(dayjs(time3).toISOString());
 console.log(dayjs(time4).toISOString());
-console.log('----------------------------');
+console.log('-----------------------------');
 // группа 2
 const time5 = '2024-08-23T15:30:00Z';
 const time6 = '2024-08-23T17:30:00+02:00';
@@ -32,7 +32,7 @@ console.log(dayjs(time5).toISOString());
 console.log(dayjs(time6).toISOString());
 console.log(dayjs(time7).toISOString());
 console.log(dayjs(time8).toISOString());
-console.log('----------------------------');
+console.log('-----------------------------');
 // группа 3
 const time9 = '2024-08-23T14:30:00Z';
 const time10 = '2024-08-23T10:30:00-04:00';
