@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 const colors = [chalk.red('*'), chalk.green('*'), chalk.blue('*')];
 let output = '';
