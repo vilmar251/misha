@@ -1,12 +1,18 @@
-import { faker } from '@faker-js/faker';
-import chalk from 'chalk';
+type User = { name?: string | null };
+const users: User[] = [{}, { name: null }, { name: '' }, { name: 'Алексей' }];
 
-const user = {
-  firstName: faker.person.firstName(),
-  lastName: faker.person.lastName(),
-  email: faker.internet.email(),
-};
+const user1 = users[0].name ?? 'не обнаружено';
+const result1 = user1 || 'пусто';
+console.log(result1);
 
-console.log(chalk.blue('First Name: ') + chalk.green(user.firstName));
-console.log(chalk.blue('Last Name: ') + chalk.green(user.lastName));
-console.log(chalk.blue('Email: ') + chalk.green(user.email));
+const user2 = users[1].name ?? 'не обнаружено';
+const result2 = user2 || 'пусто';
+console.log(result2);
+
+const user3 = users[2].name ?? 'не обнаружено';
+const result3 = user3 || 'пусто';
+console.log(result3);
+
+const user4 = users[3].name ?? 'не обнаружено';
+const result4 = user4 || 'пусто';
+console.log(result4);
