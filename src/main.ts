@@ -52,6 +52,6 @@ const a: A = {
   eight: 'b',
 };
 
-const last1 = a.second.fifth.sixth?.tenth.twelfth?.thirteenth.fifteenth.sixteenth?.last.toUpperCase();
+const last2 = a.second.fifth.sixth?.tenth.twelfth?.thirteenth.fifteenth.sixteenth?.last.toUpperCase();
 
-console.log(last1);
+console.log(last2);
