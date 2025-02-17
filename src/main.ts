@@ -6,3 +6,4 @@ const decrypt = (text: string) => {
 };
 const encryptedText = 'ntg ajuk fjbydv vikjo citvikh yd mkjidy dv qjujhp iyco. ptdvijoh!';
 console.log(decrypt(encryptedText));
+о;
