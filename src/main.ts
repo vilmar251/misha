@@ -1,9 +1,18 @@
-function sumNumbers(numbers: number[]): number {
-  let sum = 0; // Начинаем с нуля
-  for (const num of numbers) {
-    sum += num;
+import { faker } from '@faker-js/faker';
+
+function findStasAge(people: { name: string; age?: number | null }[]): string {
+  for (const person of people) {
+    if (person.name === 'Stas') {
+      if (person.age == null) return 'Возрастa нет';
+      return String(person.age);
+    }
   }
-  return sum;
+  return 'Объект не найден';
 }
-const numbers = [10, 20, 30];
-console.log(sumNumbers(numbers));
+const testData = [
+  { name: 'Alex', age: 18 },
+  { name: 'Maria', age: 20 },
+  { name: 'Stas', age: faker.helpers.maybe(() => faker.number.int({ min: 18, max: 60 })) },
+  { name: 'Ivan', age: 10 },
+];
+console.log(findStasAge(testData));
