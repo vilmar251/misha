@@ -1,19 +1,14 @@
-function fib(n: number): number {
-  if (n === 1 || n === 2) {
-    return 1;
-  }
-  return fib(n - 1) + fib(n - 2);
+function say(reName: string) {
+  return function (name: string): string {
+    return `${reName}, ${name}!`;
+  };
 }
 
-console.log(fib(1));
-console.log(fib(2));
-console.log(fib(3));
-console.log(fib(4));
-console.log(fib(5));
-console.log(fib(6));
-console.log(fib(7));
-console.log(fib(8));
-console.log(fib(9));
-console.log(fib(10));
-console.log(fib(11));
-console.log(fib(12));
+const sayHi = say('Hi');
+const sayBye = say('Bye');
+
+console.log(sayHi('Ruslan')); // Hi, Ruslan!
+console.log(sayHi('Maxim')); // Hi, Maxim!
+
+console.log(sayBye('Ruslan')); // Bye, Ruslan!
+console.log(sayBye('Maxim')); // Bye, Maxim!
