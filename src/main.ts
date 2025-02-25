@@ -1,27 +1,25 @@
-const filterPositiveNumbers = (arr: (number | string | boolean)[]): number[] =>
-  arr.reduce((acc: number[], num) => {
-    if (typeof num === 'number' && num > 0) acc.push(num);
-    return acc;
-  }, []);
+type GradeCount = {
+  count: number;
+  sum: number;
+};
 
-const filterStrings = (arr: (number | string | boolean)[]): string[] =>
-  arr.reduce((acc: string[], item) => {
-    if (typeof item === 'string') acc.push(item);
-    return acc;
-  }, []);
+const values: [number, number][] = [
+  [1, 100],
+  [2, 200],
+  [3, 300],
+  [1, 2],
+  [3, 400],
+  [4, 500],
+  [1, 99],
+];
 
-const uniqueValues = (arr: (number | string | boolean)[]): (number | string | boolean)[] =>
-  arr.reduce((acc: (number | string | boolean)[], item) => {
-    if (!acc.includes(item)) acc.push(item);
-    return acc;
-  }, []);
+const result = values.reduce<Record<number, GradeCount>>((acc, [grade, count]) => {
+  if (!acc[grade]) {
+    acc[grade] = { count: 0, sum: 0 };
+  }
+  acc[grade].count += 1;
+  acc[grade].sum += count;
+  return acc;
+}, {});
 
-const reverseArray = (arr: (number | string | boolean)[]): (number | string | boolean)[] =>
-  arr.reduce((acc: (number | string | boolean)[], item) => [item, ...acc], []);
-
-const values: (number | string | boolean)[] = [10, 'just_name', true, 10, 'just_name', false];
-
-console.log(filterPositiveNumbers(values));
-console.log(filterStrings(values));
-console.log(uniqueValues(values));
-console.log(reverseArray(values));
+console.log(result);
