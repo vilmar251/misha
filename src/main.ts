@@ -1,28 +1,27 @@
-type User = { id: number; age: number; name: string };
+const filterPositiveNumbers = (arr: (number | string | boolean)[]): number[] =>
+  arr.reduce((acc: number[], num) => {
+    if (typeof num === 'number' && num > 0) acc.push(num);
+    return acc;
+  }, []);
 
-const sort = (array: User[], key: keyof User, direction: 'asc' | 'desc' = 'asc'): User[] => {
-  return [...array].sort((a, b) => {
-    if (a[key] < b[key]) return direction === 'asc' ? -1 : 1;
-    if (a[key] > b[key]) return direction === 'asc' ? 1 : -1;
-    return 0;
-  });
-};
+const filterStrings = (arr: (number | string | boolean)[]): string[] =>
+  arr.reduce((acc: string[], item) => {
+    if (typeof item === 'string') acc.push(item);
+    return acc;
+  }, []);
 
-const users: User[] = [
-  { id: 1, age: 10, name: 'zxc' },
-  { id: 3, age: 20, name: 'juk' },
-  { id: 6, age: 2, name: 'aa' },
-  { id: 9, age: 1, name: 'ab' },
-  { id: 2, age: 5, name: 'zz' },
-];
+const uniqueValues = (arr: (number | string | boolean)[]): (number | string | boolean)[] =>
+  arr.reduce((acc: (number | string | boolean)[], item) => {
+    if (!acc.includes(item)) acc.push(item);
+    return acc;
+  }, []);
 
-const sortedByIdAsc = sort(users, 'id');
-console.log(sortedByIdAsc);
+const reverseArray = (arr: (number | string | boolean)[]): (number | string | boolean)[] =>
+  arr.reduce((acc: (number | string | boolean)[], item) => [item, ...acc], []);
 
-const sortedByNameDesc = sort(users, 'name', 'desc');
-console.log(sortedByNameDesc);
+const values: (number | string | boolean)[] = [10, 'just_name', true, 10, 'just_name', false];
 
-const sortedByAgeDesc = sort(users, 'age', 'desc');
-console.log(sortedByAgeDesc);
-
-console.log(users);
+console.log(filterPositiveNumbers(values));
+console.log(filterStrings(values));
+console.log(uniqueValues(values));
+console.log(reverseArray(values));
