@@ -1,24 +1,34 @@
-class Animal {
-  public type: 'animal' = 'animal';
-}
+abstract class Person {
+  constructor(
+    public name: string,
+    public surname: string,
+  ) {}
 
-export class Cat extends Animal {
-  sayMeow() {
-    console.log('meow');
+  getFullName(): string {
+    return `${this.name} ${this.surname}`;
   }
 }
 
-export class Dog extends Animal {
-  sayWoof() {
-    console.log('woof');
+class Student extends Person {
+  constructor(
+    name: string,
+    surname: string,
+    public year: number,
+  ) {
+    super(name, surname);
+  }
+
+  getCourse(): number {
+    const currentYear = 2024;
+    const course = currentYear - this.year;
+    return course;
   }
 }
 
-const cat = new Cat();
-const dog = new Dog();
+const student = new Student('Иван', 'Иванов', 2020);
 
-console.log(cat.type);
-cat.sayMeow();
-
-console.log(dog.type);
-dog.sayWoof();
+console.log(student.name);
+console.log(student.surname);
+console.log(student.getFullName());
+console.log(student.year);
+console.log(student.getCourse());
